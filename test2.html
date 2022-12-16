@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guitar Commerce</title>
+  <style>
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+      v2.0 | 20110126
+      License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    body {
+      font-family: sans-serif;
+      background-color: black;
+    }
+    header {
+      background-image: url("./caio-silva-C7RFkKvThG4-unsplash.jpg");
+      background-size: 150%;
+      color: white;
+      padding: 20px, 0;
+      text-align: center;
+      height: 100vh;
+      background-size: cover;
+    }
+
+    #header-title {
+      font-size: 3em;
+      border: white solid;
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -ms-transform: translate(-50%);
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.389);
+    }
+    #content {
+      background-image: url("./chris-hardy-VY0XY_DNwqc-unsplash.jpg");
+      background-size: 100%;
+      max-width: 100vw;
+      height: 100vh;
+      padding: 5% 5%;
+      padding: auto;
+      margin: 0%;
+    }
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    h2 {
+      font-size: 18px;
+      margin: 0;
+      color: #666;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #items {
+      display: flex;
+      margin: 20% 0;
+      border: white solid;
+      justify-content: space-between;
+      background-color: #0000005f;
+    }
+    li {
+      display: flex;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    img {
+      width: 200px;
+      margin-right: 20px;
+    }
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+    .price {
+      font-weight: bold;
+      color: #00b300;
+    }
+    .add-to-cart {
+      background-color: #00b300;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .add-to-cart:hover {
+      background-color: #009900;
+    }
+
+    .menu {  
+      box-sizing: border-box;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      max-width: 150px;
+      height: 100vh;
+      background-color: rgba(78, 78, 78, 0.741);
+      margin-left: -150px;
+      transition: margin .3s linear;
+    }
+
+  .hamburger{
+    display: table;
+    position: absolute;
+    top: 10px;
+    right: -35px;
+    height: 29px;
+    width: 30px;
+    padding: 0;
+    cursor: pointer;
+  }
+  .bar
+    {transition: .3s}
+  hr:first-child{
+    width: 22px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin: 0 0 6px;
+  }
+  hr:nth-child(2) {
+    width: 13px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin: 0 0 6px;
+  }
+  hr:last-child{
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin: 0;
+  }
+
+  #menuContent {
+    margin: 5%;
+    padding: 5%;
+  }
+
+  .menuItems {
+    border: none;
+    color: white;
+  }
+
+  .menuItems a {
+    border: none;
+    color: white;
+    text-decoration: none;
+  }
+  
+  footer {
+    padding: 2%;
+    background-color: #666;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 1200px) { 
+    #items {
+      margin-top: 10%;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      border: white solid;
+      color: #fff;
+    }
+    #content {
+      background-image: url("./chris-hardy-VY0XY_DNwqc-unsplash.jpg");
+      background-size: 100%;
+      max-width: 100vw;
+      height: auto;
+      padding: 5% 15%;
+      margin: 0%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @media screen and (max-height: 500px) { 
+    #items {
+      margin-top: 10%;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      border: white solid;
+      color: #fff;
+    }
+    #content {
+      background-image: url("./chris-hardy-VY0XY_DNwqc-unsplash.jpg");
+      background-size: 100%;
+      max-width: 100vw;
+      height: auto;
+      padding: 5% 15%;
+      margin: 0%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <ul id="menuContent">
+      <li class="menuItems">
+        <a href="#header">Home</a>
+      </li>
+      <li class="menuItems">
+        <a href="#content">About us</a>
+      </li>
+      <li class="menuItems">
+        <a href="">Contact</a>
+      </li>
+    </ul>
+      <label for="box-btn" class="hamburger" id="hamburger">
+        <hr class="bar"></hr>
+        <hr class="bar"></hr>
+        <hr class="bar"></hr>
+      </label>
+  </div>
+  <header id="header">
+    <h1 id="header-title">Unleash Your Inner Musician with Our Top-quality Guitars</h1>
+  </header>
+  <section id="content">
+    <ul id="items">
+      <li>
+        <img src="./krzysztof-hepner-ZIGI-0Br8Bg-unsplash.jpg" alt="Guitar 1" onmouseenter="focusImg('guitar1')" onmouseleave="deleteImg()" id="guitar1">
+        <div>
+          <p>From its early days as the go-to guitar for country and western players, to its current popularity in rock, blues, and even jazz, the Telecaster has proven itself to be a versatile and reliable instrument. With its smooth, easy-to-play neck and responsive pickups, the Telecaster is a joy to play and a great choice for any musician.</p>
+          <p class="price">$999.99</p>
+          <div class="add-to-cart">Add to Cart</div>
+        </div>
+      </li>
+      <li>
+        <img src="jacek-dylag-71k2FbrLMjA-unsplash.jpg" alt="Guitar 2" onmouseenter="focusImg('guitar2')" onmouseleave="deleteImg()" id="guitar2">
+        <div>
+          <p>Whether you're a beginner looking for your first electric guitar or a seasoned pro in search of a versatile and reliable instrument, the Stratocaster is a great choice. Its wide range of tones and comfortable playability make it suitable for players of all levels, and its enduring popularity ensures that it will always be in demand.</p>
+          <p class="price">$799.99</p>
+          <div class="add-to-cart">Add to Cart</div>
+        </div>
+      </li>
+      <li>
+        <img src="polygon-group-oxMhZ1cQAIg-unsplash.jpg" alt="Guitar 3" onmouseenter="focusImg('guitar3')" onmouseleave="deleteImg()" id="guitar3">
+        <div>
+          <p>The Fender Jazzmaster is a classic electric guitar with a unique and distinct sound. Known for its smooth and rich tone, the Jazzmaster has been a favorite among musicians for decades. So if you're looking for a guitar that's versatile, unique, and has a timeless look, the Jazzmaster is the way to go. With its warm tone it's a guitar that will serve you well for years to come.</p>
+          <p class="price">$1000.99</p>
+          <div class="add-to-cart">Add to Cart</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer>
+    http//:midtermguitar.com
+  </footer>
+</body>
+            <script>
+              function focusImg(item) {
+                const parent = document.createElement("div");
+                parent.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                parent.style.width = "100vw";
+                parent.style.height = "100vh";
+                parent.style.position = "fixed";
+                parent.style.top = "50%";
+                parent.style.left = "50%";
+                parent.style.transform = "translate(-50%, -50%)";
+                parent.id = "tempImg";
+                const child = document.createElement("img");
+                console.log(window.screen.height);
+                const size = parseInt(window.innerHeight) / 10 * 7;
+                const widthSize = size / 3 * 2
+                const source = document.getElementById(item);
+                child.src = source.src;
+                child.style.position = "fixed";
+                child.style.height = size + "px";
+                child.style.width = widthSize + "px";
+                child.style.top = "50%";
+                child.style.left = "50%";
+                child.style.transform = "translate(-50%, -50%)";
+                child.style.backgroundColor = "white"
+                parent.appendChild(child)
+                document.getElementById('content').appendChild(parent);
+                // const guitar = document.getElementById(item);
+                // guitar.style.width = "100%";
+              }
+
+              function deleteImg() {
+                document.getElementById('content').removeChild(document.getElementById("tempImg"))
+              }
+
+                const hamburger = document.getElementById("hamburger");
+                hamburger.addEventListener("click", () => {
+                  const boxBtn = document.getElementById("hamburger");
+                  console.log(hamburger.checked);
+                  if(!hamburger.checked) {
+                    console.log("ke");
+                    const bars = document.getElementsByClassName('bar');
+                    const menu = document.getElementsByClassName('menu');
+                    for(const bar of bars) {
+                      bar.style.width = "30px";
+                      bar.setAttribute("cheked", true);
+                    }
+                    menu[0].style.marginLeft = "0";
+                    hamburger.checked = true;
+                    
+                    const guitar1 = document.getElementById("guitar1");
+                    const guitar2 = document.getElementById("guitar2");
+                    const guitar3 = document.getElementById("guitar3");
+
+                    guitar1.removeAttribute("onmouseenter");
+                    guitar2.removeAttribute("onmouseenter");
+                    guitar3.removeAttribute("onmouseenter");
+                    
+                  } else {
+                    const bars = document.getElementsByClassName('bar');
+                    const menu = document.getElementsByClassName('menu');
+                    for(const bar of bars) {
+                      bar.removeAttribute("cheked");
+                      bar.removeAttribute("style");
+                    }
+                    menu[0].style.marginLeft = "-150px";
+                    menu[0].style.transition = ".3s"
+                    hamburger.checked = false;
+
+                    const guitar1 = document.getElementById("guitar1");
+                    const guitar2 = document.getElementById("guitar2");
+                    const guitar3 = document.getElementById("guitar3");
+
+                    guitar1.setAttribute("onmouseenter", 'focusImg("guitar1")');
+                    guitar2.setAttribute("onmouseenter", 'focusImg("guitar2")');
+                    guitar3.setAttribute("onmouseenter", 'focusImg("guitar3")');
+                  }
+                })
+              
+
+              // select the elements we want to apply the parallax effect to
+              const parallaxHeader = document.querySelector('header');
+              const parallaxSection = document.querySelector('#content');
+              const parallaxTitle = document.getElementById("header-title");
+              const style = getComputedStyle(parallaxTitle).top;
+              const position = parseFloat(style)
+          
+              // listen for the scroll event and update the position of the elements
+              window.addEventListener('scroll', function() {
+              // calculate the new position of the header background
+              const headerBgPos = -(window.scrollY / 2);
+              parallaxHeader.style.backgroundPositionY = headerBgPos + 'px';
+
+              const headerTextPos = - (window.scrollY / 1000000000000000);
+            
+              parallaxTitle.style.top = position + headerTextPos + 'px';
+          
+              // calculate the new position of the section background
+              const sectionBgPos = -(window.scrollY / 4);
+              parallaxSection.style.backgroundPositionY = sectionBgPos + 'px';
+              });
+          </script>
+</html>
